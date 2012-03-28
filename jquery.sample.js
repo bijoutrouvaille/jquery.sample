@@ -60,7 +60,7 @@
              * whether there is a map or not $.sample still performs the normal matching
              */
 
-            //
+
             // we will cache all select elements in case their options are created further down
             var selects = [];
             $.each(data, function(k,v) {
@@ -135,26 +135,32 @@
                                         + (vv.text || vv.value || vv)
                                     + '</option>')
                             });
+
                             // check if the default matcher has cached a value
 
                             $.each(selects, function(k,v){
                                 if (v.el===el[0]) {
-                                    //console.log('select reexamined',v.val);
+
                                     el.val(v.val);
-                                    //el.attr('value',v.val);
+
                                     return false;
                                 }
                             });
+
                             // check to see if there is a map for this value
+
                             $.each(map, function(k,v) {
+
                                 // this duplicates some code above, I feel wet
                                 var o = k.split('/');
                                 var prop = o.pop().toLowerCase();
                                 var sel = o.join('/') || 'this object does not exist';
                                 var el2 = findElement(that, sel);
+
                                 if (el2.length && (prop=='val' || prop=='value') && el[0]===el2[0]) {
-                                    el.val(data[v]);
-                                    //el.attr('value',v.val);
+
+                                    el.val(data[v])
+
                                 }
 
                             });
@@ -168,10 +174,8 @@
                 }
             });
 
-
-
-			return this;
-		}
+	    return this;
+	}
     };
 	$.fn.sample = function(method) {
 		// Method calling logic
