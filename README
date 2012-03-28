@@ -6,14 +6,14 @@ HOW IT WORKS
 
 Here's an example template:
 
-= = = = = =
-<div id="robots">
+- = - = - = - = - = - = -
+<div id='robots'>
   <div class='robot'>
      <span class='name'></span> 
      <a href='/robots' class='model'></a>
   </div>
 </div>
-= = = = = =
+- = - = - = - = - = - = -
 
 
 AUTOMATIC BINDING
@@ -31,16 +31,22 @@ evertything else - will set the text of, as in $('.robot .name').text ('zigzag')
 
 This is nice but we have many robots with different names:
 
-    $('#robots').sample([{name:'zigzag', model:'blacksheep'},{name:'twizzler',model:'blacksheep'}])
+    data = [
+        {name:'zigzag',   model:'blacksheep'}, 
+        {name:'twizzler', model:'blacksheep'}
+    ]
+    $('#robots').sample(data)
 
 This will clone the element and insert the sampled items after the original.
 
+
+
 MAPPED BINDING
 
-Now we want the model anchor to link us to individual model's URL's - this is where maps come in:
+Now we want the model anchor to link us to individual model's URL's. This is what maps are used for:
 
     data = {name:'zigzag', model:'blacksheep', linkUrl:'/robots/blacksheep'}
-    map  = {".model/href":"linkUrl"}
+    map  = {'.model/href':'linkUrl'}
     $('.robot').sample(data, map )
 
 This will perform the basic matching and overlap it with the mapping.
@@ -50,18 +56,20 @@ This will perform the basic matching and overlap it with the mapping.
 FUN WITH MAPS
 
 data = {colors : ['red','green','purple']} 
-map  = {"select.color/options": colors}
+map  = {'select.color/options': colors}
 
 data = { colors : [{text:'red',value:'1'},{text:'green',value:'2'},{text:'purple',value:'3'}], selectedColor: '3' } 
-map  = {"select.color/options": 'colors', "select.color/value": 'selectedColor'}
+map  = {'select.color/options': 'colors', 'select.color/value': 'selectedColor'}
 
 data = {isEvil:false}
 map = {"input.evil/checked": 'isEvil'}
 
 
+
 MAP STRUCTURE
 
-"selector/property" : 'data key name'
+map = {'selector/property' : 'data key name', etc... }
+
 The property can be either: html, text (alias: txt), value (alias: val), checked, and options.
 
 
