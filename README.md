@@ -1,0 +1,102 @@
+JQUERY.SAMPLE
+
+The idea is to avoid having facial hair in your templates and use clean and clear HTML. It is not mine, but belongs to hij1nx and his incomplete, but still wonderful weld.js @ https://github.com/hij1nx/weld
+
+HOW IT WORKS
+
+Here's an example template:
+
+- = - = - = - = - = - = -
+<div id='robots'>
+  <div class='robot'>
+     <span class='name'></span> 
+     <a href='/robots' class='model'></a>
+  </div>
+</div>
+- = - = - = - = - = - = -
+
+
+AUTOMATIC BINDING
+
+The automatic method simply looks for attributes class, id, or name and matches them to the data passed.
+
+    $('.robot').sample({name:'zigzag', model:'blacksheep'});
+
+The attributes are set depending on the element:
+input - value or checked
+img - src
+label - will prepend text
+evertything else - will set the text of, as in $('.robot .name').text ('zigzag')
+
+
+This is nice but we have many robots with different names:
+
+    data = [
+        {name:'zigzag',   model:'blacksheep'}, 
+        {name:'twizzler', model:'blacksheep'}
+    ]
+    $('#robots').sample(data)
+
+This will clone the element and insert the sampled items after the original.
+
+
+
+MAPPED BINDING
+
+Now we want the model anchor to link us to individual model's URL's. This is what maps are used for:
+
+    data = {name:'zigzag', model:'blacksheep', linkUrl:'/robots/blacksheep'}
+    map  = {'.model/href':'linkUrl'}
+    $('.robot').sample(data, map )
+
+This will perform the basic matching and overlap it with the mapping.
+
+ -=- =-= -=- =-= -=- =-= -=- =-= -=- =-= -=-
+
+FUN WITH MAPS
+
+data = {colors : ['red','green','purple']} 
+map  = {'select.color/options': colors}
+
+data = { colors : [{text:'red',value:'1'},{text:'green',value:'2'},{text:'purple',value:'3'}], selectedColor: '3' } 
+map  = {'select.color/options': 'colors', 'select.color/value': 'selectedColor'}
+
+data = {isEvil:false}
+map = {"input.evil/checked": 'isEvil'}
+
+
+
+MAP STRUCTURE
+
+map = {'selector/property' : 'data key name', etc... }
+
+The property can be either: html, text (alias: txt), value (alias: val), checked, and options.
+
+
+HTML STRINGS
+
+You can use $.sample (html, data, map) to obtain an html string of sampled results.
+
+You've heard it, now sample it!
+
+
+ -=- =-= -=- =-= -=- =-= -=- =-= -=- =-= -=-
+ -=- =-= -=- =-= -=- =-= -=- =-= -=- =-= -=-
+ -=- =-= -=- =-= -=- =-= -=- =-= -=- =-= -=-
+
+License
+
+(The MIT License)
+
+Copyright (c) 2011 liquidvibr @ https://github.com/liquidripples
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+
+
