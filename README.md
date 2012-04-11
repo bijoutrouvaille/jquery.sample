@@ -1,13 +1,13 @@
 #jQuery.sample
 
-The idea is to avoid having facial hair in your templates and use clean and clear HTML. 
-It is not mine, but belongs to hij1nx and his incomplete, but still 
+The idea is to avoid having facial hair in your templates by using clean and clear HTML. 
+The idea was not had by me, but belongs to hij1nx and his incomplete, but still 
 wonderful weld.js @ https://github.com/hij1nx/weld
 
 
-##How It Works
+##How to Sample
 
-###Required Source
+###Required Files
 
 ```html
 <script src="jquery.js" type="text/javascript"></script>
@@ -96,11 +96,11 @@ map = {"input.evil/checked": 'isEvil'}
 ###Map Structure
 
 ```javascript
-map = {'selector/property' : 'data key name', etc... }
+map = {'selector/property' : 'data key name', repeat... }
 ```
 
 Special properties are: html, text (alias: txt), value (alias: val), checked, and options.
-All others, will be added as attributes.
+All others, will be added as tag attributes.
 
 
 ###Html Strings
