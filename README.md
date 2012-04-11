@@ -11,7 +11,7 @@ wonderful weld.js @ https://github.com/hij1nx/weld
 
 ```html
 <script src="jquery.js" type="text/javascript"></script>
-<script src="jquery.sample.js"/>
+<script src="jquery.sample.js" type="text/javascript"></script>
 ```
 
 ###An Example Template
@@ -32,7 +32,7 @@ The automatic method simply looks for attributes class, id, or name and matches 
 ```javascript
 $('.robot').sample({name:'zigzag', model:'blacksheep'});
 // this would also work
-$('#robot').sample({name:'zigzag', model:'blacksheep'});
+$('#robots').sample({name:'zigzag', model:'blacksheep'});
 // so would this
 $('body').sample({name:'zigzag', model:'blacksheep'});
 ```
@@ -99,12 +99,13 @@ map = {"input.evil/checked": 'isEvil'}
 map = {'selector/property' : 'data key name', etc... }
 ```
 
-The property can be either: html, text (alias: txt), value (alias: val), checked, and options.
+Special properties are: html, text (alias: txt), value (alias: val), checked, and options.
+All others, will be added as attributes.
 
 
 ###Html Strings
 
-You can use `$.sample (html, data, map)` to obtain an html string of sampled results, 
+You can use `var sampledHtml = $.sample (html, data, map)` to obtain an html string of sampled results directly, 
 the rest of the syntax being the same as described above.
 
 Now go sample some stuff!
