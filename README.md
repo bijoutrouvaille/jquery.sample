@@ -1,90 +1,116 @@
-JQUERY.SAMPLE
+#jQuery.sample
 
-The idea is to avoid having facial hair in your templates and use clean and clear HTML. It is not mine, but belongs to hij1nx and his incomplete, but still wonderful weld.js @ https://github.com/hij1nx/weld
+The idea is to avoid having facial hair in your templates and use clean and clear HTML. 
+It is not mine, but belongs to hij1nx and his incomplete, but still 
+wonderful weld.js @ https://github.com/hij1nx/weld
 
-HOW IT WORKS
 
-Here's an example template:
+##How It Works
 
-- = - = - = - = - = - = -
+###Required Source
+
+```html
+<script src="jquery.js" type="text/javascript"></script>
+<script src="jquery.sample.js"/>
+```
+
+###An Example Template
+
+```html
 <div id='robots'>
   <div class='robot'>
      <span class='name'></span> 
      <a href='/robots' class='model'></a>
   </div>
 </div>
-- = - = - = - = - = - = -
+```
 
-
-AUTOMATIC BINDING
+###Automatic Binding
 
 The automatic method simply looks for attributes class, id, or name and matches them to the data passed.
 
-    $('.robot').sample({name:'zigzag', model:'blacksheep'});
+```javascript
+$('.robot').sample({name:'zigzag', model:'blacksheep'});
+// this would also work
+$('#robot').sample({name:'zigzag', model:'blacksheep'});
+// so would this
+$('body').sample({name:'zigzag', model:'blacksheep'});
+```
 
 The attributes are set depending on the element:
-input - value or checked
-img - src
-label - will prepend text
-evertything else - will set the text of, as in $('.robot .name').text ('zigzag')
 
+```
+input: value or checked
+img: src
+label: will prepend text
+evertything else: will set the inner text of using jQuery .text() method
+```
 
 This is nice but we have many robots with different names:
 
-    data = [
-        {name:'zigzag',   model:'blacksheep'}, 
-        {name:'twizzler', model:'blacksheep'}
-    ]
-    $('#robots').sample(data)
+```javascript
+data = [
+   {name:'zigzag',   model:'blacksheep'}, 
+   {name:'twizzler', model:'blacksheep'}
+];
+$('#robots').sample(data)
+```
 
 This will clone the element and insert the sampled items after the original.
 
 
-
-MAPPED BINDING
+###Mapped Binding
 
 Now we want the model anchor to link us to individual model's URL's. This is what maps are used for:
 
-    data = {name:'zigzag', model:'blacksheep', linkUrl:'/robots/blacksheep'}
-    map  = {'.model/href':'linkUrl'}
-    $('.robot').sample(data, map )
+```javascript
+data = {name:'zigzag', model:'blacksheep', linkUrl:'/robots/blacksheep'};
+map  = {'.model/href':'linkUrl'};
+$('.robot').sample(data, map )
+```
 
 This will perform the basic matching and overlap it with the mapping.
 
- -=- =-= -=- =-= -=- =-= -=- =-= -=- =-= -=-
 
-FUN WITH MAPS
+###Fun with Maps
 
+```javascript
 data = {colors : ['red','green','purple']} 
 map  = {'select.color/options': colors}
 
-data = { colors : [{text:'red',value:'1'},{text:'green',value:'2'},{text:'purple',value:'3'}], selectedColor: '3' } 
+data = { 
+  colors : [
+    {text:'red',value:'1'},
+    {text:'green',value:'2'},
+    {text:'purple',value:'3'}
+  ], 
+  selectedColor: '3' 
+};
 map  = {'select.color/options': 'colors', 'select.color/value': 'selectedColor'}
 
 data = {isEvil:false}
 map = {"input.evil/checked": 'isEvil'}
+```
 
 
+###Map Structure
 
-MAP STRUCTURE
-
+```javascript
 map = {'selector/property' : 'data key name', etc... }
+```
 
 The property can be either: html, text (alias: txt), value (alias: val), checked, and options.
 
 
-HTML STRINGS
+###Html Strings
 
-You can use $.sample (html, data, map) to obtain an html string of sampled results.
+You can use `$.sample (html, data, map)` to obtain an html string of sampled results, 
+the rest of the syntax being the same as described above.
 
-You've heard it, now sample it!
+Now go sample some stuff!
 
 
- -=- =-= -=- =-= -=- =-= -=- =-= -=- =-= -=-
- -=- =-= -=- =-= -=- =-= -=- =-= -=- =-= -=-
- -=- =-= -=- =-= -=- =-= -=- =-= -=- =-= -=-
-
-License
+## License
 
 (The MIT License)
 
