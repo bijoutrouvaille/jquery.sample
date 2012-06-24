@@ -1,8 +1,9 @@
 #jQuery.sample
 
 The idea is to avoid having facial hair in your templates by using clean and clear HTML. 
-The idea was not had by me, but belongs to hij1nx and his incomplete, but still 
-wonderful weld.js @ https://github.com/hij1nx/weld
+The overall idea was not had by me, but belongs to hij1nx and his incomplete, but still 
+wonderful weld.js @ https://github.com/hij1nx/weld. My innovation here is the map system,
+which has proven to be very convenient in my own projects.
 
 
 ##How to Sample
@@ -115,7 +116,7 @@ Now go sample some stuff!
 
 (The MIT License)
 
-Copyright (c) 2011 liquidvibr @ https://github.com/bijoutrouvaille
+Copyright (c) 2011 Bijou Trouvaille @ https://github.com/bijoutrouvaille
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
