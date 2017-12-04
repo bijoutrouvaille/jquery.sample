@@ -1,21 +1,21 @@
-#jQuery.sample
+# jQuery.sample
 
 The idea is to avoid having facial hair in your templates by using clean and clear HTML. 
-The overall idea was not had by me, but belongs to hij1nx and his incomplete, but still 
+It was not originated by me, but belongs to hij1nx and his incomplete, but still 
 wonderful weld.js @ https://github.com/hij1nx/weld. My innovation here is the map system,
 which has proven to be very convenient in my own projects.
 
 
-##How to Sample
+## How to Sample
 
-###Required Files
+### Required Files
 
 ```html
 <script src="jquery.js" type="text/javascript"></script>
 <script src="jquery.sample.js" type="text/javascript"></script>
 ```
 
-###An Example Template
+### An Example Template
 
 ```html
 <div id='robots'>
@@ -26,9 +26,9 @@ which has proven to be very convenient in my own projects.
 </div>
 ```
 
-###Automatic Binding
+### Basic Binding
 
-The automatic method simply looks for attributes class, id, or name and matches them to the data passed.
+The `sample` method simply looks for attributes class, id, or name and matches them to the data passed.
 
 ```javascript
 $('.robot').sample({name:'zigzag', model:'blacksheep'});
@@ -38,7 +38,7 @@ $('#robots').sample({name:'zigzag', model:'blacksheep'});
 $('body').sample({name:'zigzag', model:'blacksheep'});
 ```
 
-The attributes are set depending on the element:
+The attributes are _automatically_ chosen based on the target element:
 
 ```
 input: value or checked
@@ -47,7 +47,7 @@ label: will prepend text
 evertything else: will set the inner text of using jQuery .text() method
 ```
 
-This is nice but we have many robots with different names:
+This is nice but what if we have many robots with different names:
 
 ```javascript
 data = [
@@ -60,9 +60,9 @@ $('#robots').sample(data)
 This will clone the element and insert the sampled items after the original.
 
 
-###Mapped Binding
+### Mapped Binding
 
-Now we want the model anchor to link us to individual model's URL's. This is what maps are used for:
+Now we want the model anchor element (i.e. `<a href...></a>`) to link us to individual model's URLs. This is what maps are used for:
 
 ```javascript
 data = {name:'zigzag', model:'blacksheep', linkUrl:'/robots/blacksheep'};
@@ -73,7 +73,7 @@ $('.robot').sample(data, map )
 This will perform the basic matching and overlap it with the mapping.
 
 
-###Fun with Maps
+### Fun with Maps
 
 ```javascript
 data = {colors : ['red','green','purple']} 
@@ -94,22 +94,22 @@ map = {"input.evil/checked": 'isEvil'}
 ```
 
 
-###Map Structure
+### Map Structure
 
 ```javascript
 map = {'selector/property' : 'data key name', repeat... }
 ```
 
 Special properties are: html, text (alias: txt), value (alias: val), checked, and options.
-All others, will be added as tag attributes.
+All others, will be added as element's attributes.
 
 
-###Html Strings
+### Html Strings
 
-You can use `var sampledHtml = $.sample (html, data, map)` to obtain an html string of sampled results directly, 
+You can use `var sampledHtml = $.sample(html, data, map)` to obtain an html string of sampled results directly, 
 the rest of the syntax being the same as described above.
 
-Now go sample some stuff!
+Now you can sample some stuff!
 
 
 ## License
